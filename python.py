@@ -9,6 +9,8 @@ def table_de_verite(variables, fonction):
     table = list(product([0, 1], repeat=n))
 
     print("Table de vérité:")
+    print("a | b | c | f(a, b, c)")
+    print("----------------------")
     for row in table:
         context = {variables[i]: row[i] for i in range(n)}
         result = eval(fonction, {}, context)
@@ -29,8 +31,8 @@ def premiere_forme_canonique(variables, table):
                     term.append(variables[i])
                 elif val == 0:
                     term.append(f"~{variables[i]}")
-            terms.append(" & ".join(term))
-    expression = " | ".join(terms)
+            terms.append(" AND ".join(term))
+    expression = " OR ".join(terms)
     print("\nPremière forme canonique:")
     print(expression)
 
@@ -48,8 +50,8 @@ def deuxieme_forme_canonique(variables, table):
                     term.append(variables[i])
                 elif val == 1:
                     term.append(f"~{variables[i]}")
-            terms.append(" | ".join(term))
-    expression = " & ".join(terms)
+            terms.append(" OR ".join(term))
+    expression = " AND ".join(terms)
     print("\nDeuxième forme canonique:")
     print(expression)
 
@@ -63,4 +65,4 @@ table = table_de_verite(variables, fonction_logique)
 
 # Calculer et afficher les formes canoniques
 premiere_forme_canonique(variables, table)
-deuxieme_forme_canoniqu
+deuxieme_forme_canonique(variables, table)
