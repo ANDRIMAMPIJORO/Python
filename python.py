@@ -66,3 +66,5 @@ table = table_de_verite(variables, fonction_logique)
 # Calculer et afficher les formes canoniques
 premiere_forme_canonique(variables, table)
 deuxieme_forme_canonique(variables, table)
+
+
